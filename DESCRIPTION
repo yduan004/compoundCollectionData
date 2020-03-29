@@ -10,7 +10,7 @@ Depends: R (>= 3.6)
 Imports: AnnotationHub
 Suggests: knitr, rmarkdown
 License: Artistic-2.0
-biocViews: AnnotationHub
+biocViews: AnnotationHub, AnnotationData
 Encoding: UTF-8
 VignetteBuilder: knitr
 RoxygenNote: 7.1.0

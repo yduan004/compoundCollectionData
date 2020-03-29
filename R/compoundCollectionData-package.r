@@ -64,7 +64,8 @@
 #' 
 #' The R script of generating the above 5 datasets is available at the 
 #' 'inst/scripts/make-data.R' file in this package.
-#'   
+#' 
+#' @import AnnotationHub
 #' @author
 #' \itemize{
 #'   \item Yuzhu Duan (yduan004@ucr.edu)

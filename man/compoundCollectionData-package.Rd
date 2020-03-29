@@ -71,7 +71,9 @@ The R script of generating the above 5 datasets is available at the
 \examples{
 library(AnnotationHub)
 \dontrun{
+
     ah <- AnnotationHub()
+    
     ## Load compoundCollection annotation SQLite database
     query(ah, c("compoundCollectionData", "annot"))
     annot_path <- ah[[""]]

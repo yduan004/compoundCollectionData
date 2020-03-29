@@ -7,7 +7,7 @@ output:
   BiocStyle::html_document:
     toc_float: true
     code_folding: show
-vignette: |
+vignette: >
   %\VignetteIndexEntry{compoundCollectionData}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
