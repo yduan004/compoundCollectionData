@@ -1,0 +1,16 @@
+Package: compoundCollectionData
+Title: Compound Annotation and Structure Datasets
+Description: Annotation and structure datasets for compounds in DrugAge, 
+             DrugBank, CMAP02 and LINCS databases.
+Version: 0.99.0
+Author: Yuzhu Duan <yduan004@ucr.edu>,
+        Thomas Girke <thomas.girke@ucr.edu>
+Maintainer: Yuzhu Duan <yduan004@ucr.edu>
+Depends: R (>= 3.6)
+Imports: AnnotationHub
+Suggests: knitr, rmarkdown
+License: Artistic-2.0
+biocViews: AnnotationHub
+Encoding: UTF-8
+VignetteBuilder: knitr
+RoxygenNote: 7.1.0
