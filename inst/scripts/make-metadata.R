@@ -1,8 +1,8 @@
 library(AnnotationHub)
 library(AnnotationHubData)
 meta <- data.frame(
-  Title = c("annot_collection", 
-            "drugage_sdf", "drugbank_sdf", "cmap_sdf", "lincs_sdf"),
+  Title = c("annot_0.1", 
+            "drugage_build2", "drugbank_5.1.5", "cmap02", "lincs_pilot1"),
   Description = c("SQLite database containing compound annotations from four resources",
                   "SDF file of compounds in DrugAge database",
                   "SDF file of compounds in DrugBank database",
@@ -18,9 +18,9 @@ meta <- data.frame(
                 "https://www.drugbank.ca/releases/latest#structures",
                 "https://github.com/tgirke/longevityDrugs",
                 "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE92nnn/GSE92742/suppl/GSE92742_Broad_LINCS_pert_info.txt.gz"),
-  SourceVersion = c("Build 2; 5.1.5; Build02; Mar 03 2017", 
+  SourceVersion = c("Build 2; 5.1.5; Build02; Pilot Phase 1", 
                     "Build 2", "5.1.5",
-                    "Build02", "Mar 03 2017"),
+                    "Build02", "Pilot Phase 1"),
   Species = rep("Homo sapiens", 5),
   TaxonomyId = rep(9606, 5),
   Coordinate_1_based = rep(TRUE, 5),
@@ -35,11 +35,11 @@ meta <- data.frame(
   DispatchClass = c("FilePath", 
                     "FilePath", "FilePath",
                     "FilePath", "FilePath"),
-  RDataPath = c("compoundCollectionData/compoundCollection.db",
-                "compoundCollectionData/drugage.sdf",
+  RDataPath = c("compoundCollectionData/compoundCollection_0.1.db",
+                "compoundCollectionData/drugage_build2.sdf",
                 "compoundCollectionData/drugbank_5.1.5.sdf",
-                "compoundCollectionData/cmap.sdf",
-                "compoundCollectionData/lincs.sdf"),
+                "compoundCollectionData/cmap02.sdf",
+                "compoundCollectionData/lincs_pilot1.sdf"),
   Tags = c("annot", "drugage", "drugbank",
            "cmap", "lincs")
 )
