@@ -2,7 +2,6 @@
 title: Compound Annotation and Structure Collection Datasets
 author: "Authors: Yuzhu Duan, Dan Evans, Jamison McCorrison, Nicholas Schork, Kevin Horan, Austin Leong, Siddharth Sai and Thomas Girke"
 date: "Last update: `r format(Sys.time(), '%d %B, %Y')`" 
-always_allow_html: yes
 output:
   BiocStyle::html_document:
     toc_float: true

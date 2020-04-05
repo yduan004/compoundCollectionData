@@ -8,7 +8,7 @@ meta <- data.frame(
                   "SDF file of compounds in DrugBank database",
                   "SDF file of compounds in CMAP02 database",
                   "SDF file of compounds in LINCS database"),
-  BiocVersion = rep("3.10", 5),
+  BiocVersion = rep("3.11", 5),
   Genome = rep("GRCh38", 5),
   # getValidSourceTypes()
   SourceType = c("TSV", "XLS/XLSX", "TXT",
