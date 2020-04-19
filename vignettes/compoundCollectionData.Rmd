@@ -59,8 +59,8 @@ The SQLite annotation database can be loaded into R as follows:
 ```{r sql, eval=FALSE}
 library(AnnotationHub)
 ah <- AnnotationHub()
-query(ah, c("compoundCollectionData", "annot"))
-annot_path <- ah[[""]]
+query(ah, c("compoundCollectionData", "annot_0.1"))
+annot_path <- ah[["AH79563"]]
 library(RSQLite)
 conn <- dbConnect(SQLite(), annot_path)
 dbListTables(conn)
@@ -74,27 +74,25 @@ comopunds. The source annotation file of DrugAge is downloaded from
 The extracted csv file only contains drug names, without id mappings to external 
 resources such as [PubChem](https://pubchem.ncbi.nlm.nih.gov/) or 
 [ChEMBL](https://www.ebi.ac.uk/chembl/). The extracted `drugage.csv` file was 
-processed by the `processDrugage` function from the 
-[drugTargetInteractions](https://github.com/longevity-consortium/LC_Chemoinformatics/tree/master/Rpackages/drugTargetInteractions) 
-package. The missing IDs were then added manually. The result DrugAge annotation table
-with external ID mappings is available at https://bit.ly/3dCWKWo. This annotation
-table along with the id-mapping table (ChEMBL ID to DrugAge internal id) were
-stored in the compoundCollection SQLite database. The drug structures were
-obtained from PubChem CIDs by `getIds` function from the `ChemmineR` Bioconductor
-package, then written to the `drugage.sdf` file.
+processed by the `processDrugage` function in this package. 
+he result DrugAge annotation table as well as the id-mapping table 
+(DrugAge internal id to ChEMBL ID) were then
+stored in an SQLite database named as 'compoundCollection'. 
+The drug structures were obtained from PubChem CIDs by \code{getIds} function 
+from \pkg{ChemmineR} package.
 
 The DrugAge compound structures can be loaded into R as follows:
 ```{r da, eval=FALSE}
-query(ah, c("compoundCollectionData", "drugage"))
-da_path <- ah[[""]]
+query(ah, c("compoundCollectionData", "drugage_build2"))
+da_path <- ah[["AH79564"]]
 da_sdfset <- ChemmineR::read.SDFset(da_path)
 ```
 
 ## DrugBank SDF
 This SDF file stores structures of compounds in [DrugBank](https://www.drugbank.ca/).
 The full DrugBank xml database was downloaded from [here](https://www.drugbank.ca/releases/latest).
-The most recent release version at this time is 5.1.5.  
-The extracted xml file was procesed by the [drugbankR](https://github.com/yduan004/drugbankR) package.
+The most recent release version at the time of writing this document is 5.1.5.  
+The extracted xml file was procesed by the \code{dbxml2df} function in this package.
 The result DrugBank annotation table was then stored in the `compoundCollection` 
 SQLite database. The DrugBank to ChEMBL id mappings were obtained from 
 [UniChem](ftp://ftp.ebi.ac.uk/pub/databases/chembl/UniChem/data/wholeSourceMapping/src_id1/src1src2.txt.gz).
@@ -103,23 +101,24 @@ and made some validity checks and modifications via utilities in the `ChemmineR`
 
 The DrugBank compound structures can be loaded into R as follows:
 ```{r db, eval=FALSE}
-query(ah, c("compoundCollectionData", "drugbank"))
-db_path <- ah[[""]]
+query(ah, c("compoundCollectionData", "drugbank_5.1.5"))
+db_path <- ah[["AH79565"]]
 db_sdfset <- ChemmineR::read.SDFset(db_path)
 ```
 
 ## CMAP SDF
-The CMAP compound annotation table and its structures were obtained from the
-[longevityDrugs](https://github.com/tgirke/longevityDrugs) package. 
-Since this table only contains PubChem CID, the ChEMBL ids were added via
-PubChem CID to ChEMBL id mappings from
+The CMAP compound instance table was downloaded from [CMAP02](http://www.broadinstitute.org/cmap/cmap_instances_02.xls)
+website and processed by the `buildCMAPdb` function
+in this package.The result `cmap.db` contains both compound annotation and 
+structure information. Since the annotation table only contains PubChem CID, 
+the ChEMBL ids were added via PubChem CID to ChEMBL id mappings from 
 [UniChem](ftp://ftp.ebi.ac.uk/pub/databases/chembl/UniChem/data/wholeSourceMapping/src_id1/src1src22.txt.gz).
-The CMAP internal IDs were made for ChEMBL to CMAP id mappings.
+The CMAP internal IDs were made for ChEMBL id to CMAP id mappings.
 
 The DrugAge compound structures can be loaded into R as follows:
 ```{r cmap, eval=FALSE}
-query(ah, c("compoundCollectionData", "cmap"))
-cmap_path <- ah[[""]]
+query(ah, c("compoundCollectionData", "cmap02"))
+cmap_path <- ah[["AH79566"]]
 cmap_sdfset <- ChemmineR::read.SDFset(cmap_path)
 ```
 
@@ -133,8 +132,10 @@ the `getIDs` function from the `ChemmineR` package.
 
 The DrugAge compound structures can be loaded into R as follows:
 ```{r lincs, eval=FALSE}
-query(ah, c("compoundCollectionData", "lincs"))
-lincs_path <- ah[[""]]
+query(ah, c("compoundCollectionData", "lincs_pilot1"))
+lincs_path <- ah[["AH79567"]]
 lincs_sdfset <- ChemmineR::read.SDFset(lincs_path)
 ```
 
+If further interested, The R script of generating the above 5 datasets is available 
+at the `inst/scripts/make-data.R` file in this package.

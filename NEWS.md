@@ -1,4 +1,4 @@
-## Changes in version 1.1.0 (2020-10-23)
+## Changes in version 1.1.0 (2020-05-23)
 + Initial version 
 
 ## Changes in version 0.99.0 (2020-03-27)

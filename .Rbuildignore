@@ -1,2 +1,12 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+
+^inst/scripts/.*\.txt$
+^inst/scripts/.*\.xls$
+^inst/scripts/.*\.tsv$
+^inst/scripts/.*\.sdf$
+^inst/scripts/.*\.db$
+^inst/scripts/.*\.rds$
+^inst/scripts/.*\.xml$
+^inst/scripts/.*\.zip$
+^inst/scripts/.*\.gz$
