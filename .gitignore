@@ -18,7 +18,7 @@
 .Rproj.user/
 
 # produced vignettes
-vignettes/*.html
+#vignettes/*.html
 vignettes/*.pdf
 
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
@@ -34,6 +34,8 @@ vignettes/*.pdf
 
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
+
+.DS_Store
 
 # download and intermediate files in inst/script
 inst/scripts/*.gz
